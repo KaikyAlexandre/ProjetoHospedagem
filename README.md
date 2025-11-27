@@ -43,9 +43,9 @@ O projeto foi construído utilizando as seguintes tecnologias:
 
 ##  Autores e Créditos
 
-Este projeto foi desenvolvido por: Kaiky Alexandre de Souza Ribeiro - RGM:45952647
+Este projeto foi desenvolvido por:
 
-*   **[Seu Nome Completo]** - *Matrícula: [Sua Matrícula]*
+*   **[Kaiky Alexandre de Souza Ribeiro ]** - *Matrícula: [45952647]*
 
 **Disciplina:** Programação Web
 **Instituição:** Centro Universitário do Distrito Federal (UDF)
