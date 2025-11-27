@@ -1,0 +1,96 @@
+# Pseudocódigo do Sistema de Gerenciamento (StarkHome)
+
+Este pseudocódigo descreve a lógica de alto nível do sistema, focando no fluxo de controle principal (`index.php`) e nas operações de persistência de dados (`salvar-*.php`).
+
+## 1. Fluxo Principal (Baseado em `index.php`)
+
+```pseudocodigo
+INICIO_PROGRAMA
+
+    // 1. Configuração e Conexão
+    INCLUIR "config.php"
+    CONECTAR_BANCO_DADOS(HOST, USER, PASS, BASE)
+
+    // 2. Renderização da Interface
+    EXIBIR_HTML_INICIO
+    EXIBIR_MENU_NAVEGACAO
+
+    // 3. Roteamento de Conteúdo
+    PAGINA_SOLICITADA = OBTER_PARAMETRO_URL("page")
+
+    SE PAGINA_SOLICITADA É VAZIA ENTÃO
+        EXIBIR_CONTEUDO_INICIAL
+    SENÃO SE PAGINA_SOLICITADA É "cadastrar-*" ENTÃO
+        INCLUIR "cadastrar-*.php" // Exibe formulário de cadastro
+    SENÃO SE PAGINA_SOLICITADA É "listar-*" ENTÃO
+        INCLUIR "listar-*.php" // Exibe lista de registros
+    SENÃO SE PAGINA_SOLICITADA É "editar-*" ENTÃO
+        INCLUIR "editar-*.php" // Exibe formulário de edição pré-preenchido
+    SENÃO SE PAGINA_SOLICITADA É "salvar-*" ENTÃO
+        INCLUIR "salvar-*.php" // Processa operações de CRUD
+    FIM_SE
+
+    EXIBIR_HTML_FIM
+
+FIM_PROGRAMA
+```
+
+## 2. Pseudocódigo para Operações de Persistência (Baseado em `salvar-*.php`)
+
+Este pseudocódigo é genérico e se aplica às operações de **Cliente**, **Hospedagem** e **Reserva**.
+
+```pseudocodigo
+INICIO_PROCESSAMENTO_SALVAR
+
+    ACAO = OBTER_PARAMETRO_POST("acao")
+    ID_REGISTRO = OBTER_PARAMETRO_URL("id_*") // Usado para Editar e Excluir
+
+    SE ACAO É "cadastrar" ENTÃO
+        // 1. Coletar Dados
+        COLETAR_DADOS_DO_POST(DADOS)
+
+        // 2. Montar e Executar SQL
+        SQL = "INSERT INTO TABELA (CAMPOS) VALUES (VALORES)"
+        RESULTADO = EXECUTAR_QUERY(SQL)
+
+        // 3. Feedback e Redirecionamento
+        SE RESULTADO É SUCESSO ENTÃO
+            EXIBIR_MENSAGEM("Cadastrado com sucesso!")
+        SENÃO
+            EXIBIR_MENSAGEM("Não cadastrou!")
+        FIM_SE
+        REDIRECIONAR_PARA("?page=listar-*")
+
+    SENÃO SE ACAO É "editar" ENTÃO
+        // 1. Coletar Dados
+        COLETAR_DADOS_DO_POST(DADOS)
+
+        // 2. Montar e Executar SQL
+        SQL = "UPDATE TABELA SET CAMPO1=VALOR1, ... WHERE ID_CAMPO = ID_REGISTRO"
+        RESULTADO = EXECUTAR_QUERY(SQL)
+
+        // 3. Feedback e Redirecionamento
+        SE RESULTADO É SUCESSO ENTÃO
+            EXIBIR_MENSAGEM("Editado com sucesso!")
+        SENÃO
+            EXIBIR_MENSAGEM("Não editou!")
+        FIM_SE
+        REDIRECIONAR_PARA("?page=listar-*")
+
+    SENÃO SE ACAO É "excluir" ENTÃO
+        // 1. Montar e Executar SQL
+        SQL = "DELETE FROM TABELA WHERE ID_CAMPO = ID_REGISTRO"
+        RESULTADO = EXECUTAR_QUERY(SQL)
+
+        // 2. Feedback e Redirecionamento
+        SE RESULTADO É SUCESSO ENTÃO
+            EXIBIR_MENSAGEM("Excluído com sucesso!")
+        SENÃO
+            EXIBIR_MENSAGEM("Não excluiu!")
+        FIM_SE
+        REDIRECIONAR_PARA("?page=listar-*")
+
+    FIM_SE
+
+FIM_PROCESSAMENTO_SALVAR
+```
