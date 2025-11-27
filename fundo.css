@@ -1,0 +1,83 @@
+body {
+    color: white;
+    background-image: url('img/snow1.png');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    
+}
+
+body {
+    font-family: 'Cinzel', serif;
+}
+
+.stark-table {
+    /* Fundo preto com 80% de opacidade */
+    background-color: rgba(0, 0, 0, 0.80); 
+    color: #FFFFFF; /* Texto branco */
+    border-collapse: collapse; 
+    border-radius: 10px; /* Bordas arredondadas suaves */
+    overflow: hidden;
+
+    /* Brilho sutil do gelo/aurora */
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); 
+}
+
+.stark-table th {
+    /* Cor do texto da Aurora */
+    color: #00FFFF; /* Ciano-Neon */
+    padding: 12px 15px;
+    text-align: left;
+    
+    /* Borda sutil na cor da Aurora */
+    border-bottom: 2px solid #00FFFF;
+    background-color: rgba(0, 50, 50, 0.3); /* Fundo um pouco mais escuro e azulado */
+}
+
+.stark-table td {
+    padding: 10px 15px;
+    border: none !important; /* Remove bordas internas */
+}
+
+/* Linhas zebradas: uma leve variação na transparência */
+.stark-table tr:nth-child(even) { 
+    background-color: rgba(255, 255, 255, 0.05); /* Mais escuro */
+}
+
+.stark-table tr:hover {
+    /* Efeito de destaque com a cor da aurora */
+    background-color: rgba(0, 255, 255, 0.15); 
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo base */
+.stark-btn-editar, .stark-btn-excluir {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin-right: 5px;
+    transition: all 0.2s ease;
+}
+
+/* Botão EDITAR (Verde/Ciano da Aurora) */
+.stark-btn-editar {
+    background-color: #00FFC6; 
+    box-shadow: 0 0 5px rgba(0, 255, 198, 0.8);
+}
+
+.stark-btn-editar:hover {
+    background-color: #33FFCC;
+}
+
+/* Botão EXCLUIR (Vermelho Escuro) */
+.stark-btn-excluir {
+    background-color: #CC3333;
+    box-shadow: 0 0 5px rgba(204, 51, 51, 0.6);
+}
+
+.stark-btn-excluir:hover {
+    background-color: #FF4444;
+}
