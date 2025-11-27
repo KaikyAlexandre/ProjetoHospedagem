@@ -32,6 +32,13 @@ O projeto foi construído utilizando as seguintes tecnologias:
 | **Estilização** | **CSS3** | Estilização e *layout* da interface do usuário. |
 | **Interatividade** | **JavaScript** | Adição de interatividade e manipulação do DOM no lado do cliente. |
 
+<p align="left">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=php,html,js,css,mysql" />
+   
+  </a>
+</p>
+
 ---
 
 ##  Autores e Créditos
