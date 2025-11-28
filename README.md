@@ -41,7 +41,7 @@ O projeto foi construído utilizando as seguintes tecnologias:
 
 ---
 
-## ⚙️ Instalação e Configuração
+##  Instalação e Configuração
 
 Para rodar este projeto em sua máquina local, você precisará de um ambiente de servidor web que suporte PHP e MySQL. Recomenda-se o uso de pacotes como **XAMPP**, **WAMP** ou **MAMP**.
 
